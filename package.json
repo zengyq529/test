@@ -1,0 +1,11 @@
+{
+  "name": "webstrom for node test",
+  "version": "1.0.0",
+  "author": "zengyq",
+  "description": "ndoejs 自己完成的测试程序",
+  "keywords": ["nodejs","glup-cli"],
+  "repository": {
+    "type": "git",
+    "url":"not have it yet"
+  }
+}
