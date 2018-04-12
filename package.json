@@ -1,11 +1,37 @@
 {
-  "name": "webstrom for node test",
+  "name": "test",
   "version": "1.0.0",
   "author": "zengyq",
-  "description": "ndoejs 自己完成的测试程序",
-  "keywords": ["nodejs","glup-cli"],
+  "description": "ndoejs 瀛︿範",
+  "main": "server.js",
   "repository": {
     "type": "git",
-    "url":"not have it yet"
-  }
+    "url": "git+https://github.com/zengyq529/test.git"
+  },
+  "engines": {
+    "node": "9.11.1"
+  },
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "morgan": "~1.9.0"
+  },
+  "devDependencies": {
+    "express": "^4.16.3"
+  },
+  "keywords": [
+    "nodejs",
+    "glup-cli"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zengyq529/test/issues"
+  },
+  "homepage": "https://github.com/zengyq529/test#readme"
 }
