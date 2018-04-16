@@ -9,3 +9,11 @@ $ cnpm install express --save-dev  //用下面的 dev也会写入
 安装express模块并写入package.json
 
 ***********阶段2 css自适应设计**************************************************
+安装 gulp
+安装 gulp-px2rem-plugin  //转 rem用的
+安装 gulp-minify-css" //压缩用的
+执行 gulpfile.js 第一次设置监听
+然后执行 gulp px2rem-plugin  就可以转了。
+自动转也已经实现了  执行 gulp 就好了。
+
+********阶段3 自己完成vue ssr 项目的搭建***************************************
