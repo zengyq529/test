@@ -46,6 +46,9 @@ em, i, s, strong {
 .mt30{
     margin-top: 30px;
 }
+.mt20{
+    margin-top: 20px;
+}
 
 .whitebg {
     background: #fff;
@@ -71,7 +74,7 @@ em, i, s, strong {
     height: 100%;
 }
 .big .userheader{
-    border-radius: 78px;
+    border-radius: 70px;
     box-shadow: 10px -5px 5px #f6f4f4;
 }
 .middle .userheader{
@@ -83,7 +86,7 @@ em, i, s, strong {
 
 /*业务 头 */
 .ui_header{
-    height: 120px;
+    height: 90px;
     width: 100%;
     color: #eef3fa;
 
@@ -94,15 +97,15 @@ em, i, s, strong {
     left:0;
     z-index:100;
     width: 100%;
-    height: 120px;
+    height: 90px;
     background: linear-gradient(to right, #4699ff 0, #2ebbfd 50%, #2cc2fd 100%);
 }
 .ui_header_left{
     left: 30px;
     top: 0px;
     position: absolute;
-    height: 100px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
 }
 .ui_header_center{
     position: absolute;
@@ -110,14 +113,14 @@ em, i, s, strong {
     margin-left:-54px;
 }
 .ui_header_center,.ui_header_right{
-    line-height: 120px;
+    line-height: 90px;
 
 }
 .ui_header_right{
     float: right;
     margin-right: 20px;
 }
-[data-dpr="2"] .ui_header{
+[data-dpr="2"] .ui_header,.ui_contain_create li{
     font-size: 36px;
 }
 
@@ -126,7 +129,7 @@ em, i, s, strong {
     background: white;
 }
 .ui_contain_search{
-    height: 57px;
+    height: 50px;
     width: 100%;
     padding-top: 20px;
 }
@@ -149,7 +152,7 @@ em, i, s, strong {
     color: #bdbec2;
 }
 [data-dpr="2"] .ui_contain_search_in input,.ui_contain_new_inner_center {
-    font-size: 28px;
+    font-size: 26px;
 }
 .ui_contain_search_in i{
     display: block;
@@ -164,27 +167,31 @@ em, i, s, strong {
 
 .ui_contain_new{
     width: 100%;
-    height: 260px;
+    height: 220px;
     border: 1px solid #c5c5c7;
     border-radius:6px ;
 }
 .ui_contain_new_top{
-    line-height: 30px;
+    line-height: 28px;
     color: black;
-    font-size: 30px;
     font-weight: 500;
     margin: 25px;
 }
+[data-dpr="2"] .ui_contain_new_top,.ui_contain_page .banner li{
+    font-size: 28px;
+}
+
+
 .ui_contain_new_inner{
-    height: 155px;
+    height: 130px;
     position: relative;
 }
 .ui_contain_new_inner_left{
     padding-left: 20px;
     top: 0px;
     display: inline-block;
-    height: 155px;
-    width: 155px;
+    height: 130px;
+    width: 130px;
 }
 .ui_contain_new_inner_center{
     display: inline-block;
@@ -193,11 +200,11 @@ em, i, s, strong {
     white-space: nowrap;
     text-overflow: ellipsis;
     color: #bdbdbd;
-    line-height: 48px;
+    line-height: 40px;
 }
 [data-dpr="2"] .ui_contain_new_inner_center b{
     color: black;
-    font-size: 35px;
+    font-size: 32px;
     font-weight: 500;
 }
 .ui_contain_new_inner_center i{
@@ -207,16 +214,15 @@ em, i, s, strong {
     border-radius: 5px;
     color: white;
 }
-[data-dpr="2"] .ui_contain_new_inner_center i,.ui_friend_list p i,.friend_list_center i{
-    font-size: 24px;
+[data-dpr="2"] .ui_contain_new_inner_center i,.ui_friend_list p i,.friend_list_center i,.ui_contain_new_inner_right{
+    font-size: 22px;
 }
 
 .ui_contain_new_inner_right{
     float: right;
-    margin-right: 30px;
+    margin-right: 25px;
     border: 1px solid #aaa;
-    padding: 10px 33px;
-    font-size: 30px;
+    padding: 10px 30px;
     border-radius: 6px;
     margin-top: 42px;
 }
@@ -227,9 +233,8 @@ em, i, s, strong {
     background: white;
 }
 .ui_contain_create li{
-    height: 90px;
-    font-size: 38px;
-    line-height: 90px;
+    height: 70px;
+    line-height: 70px;
     padding-left: 30px;
     border-bottom: 1px solid #c5c5c7;
 }
@@ -247,17 +252,19 @@ em, i, s, strong {
     border-top: 1px solid #c5c5c7;
 }
 .ui_contain_page .banner{
-    height: 85px;
+    height: 75px;
     border-bottom:  1px solid #c5c5c7;
     position: relative;
 }
+.ui_contain_page .banner ul{
+    display: flex;
+}
 .ui_contain_page .banner li{
-    float: left;
-    line-height: 85px;
-    font-size: 33px;
-    height: 80px;
-    margin: 0 35px;
+    line-height: 75px;
+    margin: 0 22px;
     color: #7c7676;
+    flex: 1;
+    text-align: center;
 }
 .ui_contain_page .banner li.on{
     color: #0badfd;
@@ -266,7 +273,7 @@ em, i, s, strong {
     background: #0badfd;
     height: 6px;
     position: absolute;
-    top: 80px;
+    top: 70px;
     /*js操作*/
     width: 100px;
     left: 0px;
@@ -275,12 +282,13 @@ em, i, s, strong {
     padding:0px 20px;
 }
 .ui_friend_list p{
-     line-height: 90px;
-     height: 90px;
-     font-size: 38px;
+     line-height: 80px;
+     height: 80px;
      font-weight: 500;
  }
-
+[data-dpr="2"] .ui_friend_list p {
+    font-size: 30px;
+}
 .ui_friend_list p em{
     display: inline-block;
     height: 32px;
@@ -298,7 +306,7 @@ em, i, s, strong {
     float: right;
 }
 .ui_friend_list li{
-     height: 110px;
+     height: 100px;
      border-bottom: 1px solid #c5c5c7;
      padding-top: 10px;
  }
@@ -316,13 +324,13 @@ em, i, s, strong {
      white-space: nowrap;
      text-overflow: ellipsis;
      color: #7c7676;
-     line-height: 48px;
-     font-size: 30px;
+     line-height: 40px;
+     font-size: 26px;
  }
 .friend_list_center b{
     color: #ef6f24;
     font-weight: normal;
-    font-size: 35px;
+    font-size: 30px;
 }
 .friend_list_center i.vip{
     background: #ebef9f;
@@ -344,4 +352,36 @@ em, i, s, strong {
     text-decoration: none;
 }
 
-
+.ui_footer{
+    position: fixed;
+    width: 100%;
+    height: 85px;
+    left: 0px;
+    bottom: 0px;
+    background: #fff;
+    border-top: 1px solid rgba(170, 170, 170, 0.85);
+}
+.ui_footer ul{
+    display: flex;
+}
+.ui_footer li{
+    text-align: center;
+    flex:1;
+}
+.ui_footer i{
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 5px auto;
+    background:url(http://www.500cache.com/mobile/touch/images/leitai/sprite.png) no-repeat ;
+    background-size: 357px;
+}
+.ui_footer_message  i{
+    background-position: -115px 0px;
+}
+.ui_footer_contact  i{
+    background-position: -173px 0px;
+}
+.ui_footer_new  i{
+    background-position: -59px 0px;
+}
