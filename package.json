@@ -6,7 +6,8 @@
   "private": false,
   "scripts": {
     "start": " node server.js",
-    "build": "webpack --config build/webpack.config.js --hide-modules"
+    "build": "webpack --config build/webpack.config.js --mode development",
+    "gulp": "gulp"
   },
   "dependencies": {
     "express": "^4.16.3",
@@ -17,6 +18,8 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "css-loader": "^0.28.11",
+    "gulp": "^3.9.1",
+    "gulp-px2rem-plugin": "^0.4.0",
     "vue": "^2.5.16",
     "vue-loader": "^14.2.2",
     "vue-router": "^3.0.1",

@@ -1,0 +1,17 @@
+.outer{
+    width: 7.8125rem;
+    height: 1.5625rem;
+    display: flex;
+    flex-direction: row;
+    border: 0.0469rem solid red;
+    flex-wrap: wrap;
+    justify-content:center;
+    align-items: center;
+}
+.inner{
+    width: 1.2500rem;
+    height: 0.7813rem;
+    display: flex;
+    border: 0.0469rem solid blue;
+
+}

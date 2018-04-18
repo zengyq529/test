@@ -1,5 +1,7 @@
 <template>
-    <div id="app">{{text}}</div>
+    <div id="app">
+        <router-view></router-view>
+    </div>
 </template>
 
 <script>
@@ -8,6 +10,9 @@
             return {
                 text:'abc'
             }
+        },
+        mounted(){
+            console.log('app')
         }
     };
 </script>
