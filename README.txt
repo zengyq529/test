@@ -17,6 +17,7 @@ $ cnpm install express --save-dev  //用下面的 dev也会写入
 自动转也已经实现了  执行 gulp 就好了。
 
 ********阶段3 自己完成vue ssr 项目的搭建***************************************
+
 1, vue ssr 搭建基本开发环境（vue +webpack）
 2，加 vue-router , vue-style-loader , gulp px->rem 。       http://localhost:3000/#/index
 

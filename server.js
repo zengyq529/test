@@ -8,6 +8,7 @@ server.get('*',(req,res)=>{
     res.end(require('fs').readFileSync('index.template.html'));
 })
 
+
 server.listen(3000,()=>{
     console.log('started')
 })

@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-
 import createRouter from './router'
-
 
 let root = document.createElement('div')
 document.body.appendChild(root)

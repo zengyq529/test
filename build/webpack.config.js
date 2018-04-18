@@ -12,7 +12,7 @@ module.exports = {
             { test: /\.vue$/,loader: 'vue-loader'},
             { test: /\.css$/,use: ['vue-style-loader', 'css-loader']} // vue-style-loader import 的css显示在页面中
         ]
-    },
+    }
 };
 
 
