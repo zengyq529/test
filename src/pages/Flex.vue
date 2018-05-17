@@ -7,7 +7,7 @@
         name: "flex",
         data(){
             return{
-                title:'flex'
+                title:'1230'
             }
         }
     }
