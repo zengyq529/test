@@ -1,38 +1,72 @@
+const fs = require('fs')
+const path = require('path')
 const express = require('express')
 const server = express()
-const path = require('path')
 const isProd = process.env.NODE_ENV === 'production'
 const port = process.env.PORT || 3000
+const { createBundleRenderer } = require('vue-server-renderer')
 
+const resolve = file => path.resolve(__dirname, file)
+
+const template = fs.readFileSync(resolve('./src/index.html'), 'utf-8')
+function createRenderer (bundle, options) {
+    return createBundleRenderer(bundle, Object.assign(options, {
+        template,
+        runInNewContext: false
+    }))
+}
 
 let readyPromise
 if(isProd){
-
+    const bundle = require('./dist/vue-ssr-server-bundle.json')
+    const clientManifest = require('./dist/vue-ssr-client-manifest.json')
+    renderer = createRenderer(bundle, {
+        clientManifest
+    })
 }else {
-    const webpackDevMiddleware = require('webpack-dev-middleware')
-    const webpackHotMiddleware = require('webpack-hot-middleware')
-    const webpack = require('webpack')
-
-    const clientConfig = require('./build/webpack.client.config')
-    clientConfig.entry.app = ["webpack-hot-middleware/client",  clientConfig.entry.app]
-
-    clientConfig.plugins.push(
-        new webpack.HotModuleReplacementPlugin()
+    readyPromise = require('./build/webpack.dev.config')(
+        server,
+        (bundle, options) => {
+            renderer = createRenderer(bundle, options)
+        }
     )
-    const complier = webpack(clientConfig)
-    server.use(webpackDevMiddleware(complier,{
-        publicPath: clientConfig.output.publicPath,
-        quiet: true , //向控制台显示任何内容
-        //  noInfo:true,
-        reload:true
-    }))
-    server.use(webpackHotMiddleware(complier))
 }
 
-server.use(express.static(path.resolve(__dirname, 'dist')))
-server.use(express.static(path.resolve(__dirname, 'public')))
+const serve = (path, cache) => express.static(resolve(path), {
+    maxAge: isProd ? 1000 * 60 * 60 * 24 * 30 : 0
+})
 
+function render (req, res) {
+    const s = Date.now()
+    res.setHeader("Content-Type", "text/html")
+    const handleError = err => {
+        if (err.url) {
+            res.redirect(err.url)
+        } else if(err.code === 404) {
+            res.status(404).send('404 | Page Not Found')
+        } else {
+            res.status(500).send('500 | Internal Server Error')
+            console.error(`error during render : ${req.url}`)
+            console.error(err.stack)
+        }
+    }
+    renderer.renderToString({title: 'Vue HN 2.0',url: req.url}, (err, html) => {
+        if (err) {
+            return handleError(err)
+        }
+        res.send(html)
+        if (!isProd) {
+            console.log(`whole request: ${Date.now() - s}ms`)
+        }
+    })
+}
+server.use('/dist', serve('./dist', true))
+server.use('/public', serve('./public', true))
 
+server.get('*', isProd ? render : (req, res) => {
+    console.log(req.url)
+    readyPromise.then(() => render(req, res))
+})
 
 server.listen(port,()=>{
     console.log(`server started in localhost:${port}`)

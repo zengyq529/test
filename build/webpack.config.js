@@ -3,7 +3,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
     devtool: isProd?false:'source-map',
-    mode:isProd?'development':'production',
+    mode:isProd?'production':'development',
     output: {
         path: path.resolve(__dirname, '../dist'),
         publicPath: "/",

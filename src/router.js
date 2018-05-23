@@ -3,9 +3,11 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-import Index from './pages/Index.vue'
-import Flex from './pages/Flex.vue'
-export default function createRouter() {
+//¶èÐÔ¼ÓÔØ
+const Index = ()=>import('./pages/Index.vue')
+const Flex = ()=>import('./pages/Flex.vue')
+
+export  function createRouter() {
     return new VueRouter({
         routes:[
             { path: '/index', component: Index },

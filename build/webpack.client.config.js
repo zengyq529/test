@@ -1,13 +1,13 @@
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.config')
-
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
+const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
 module.exports = merge(baseConfig,{
     entry: {
-        app: './src/app.js'
+        app: './src/entry-client.js'
     },
-    optimization:{
+    optimization:{       //4.0 版 文件合并管理配置
         splitChunks:{
             chunks: 'initial', // 只对入口文件处理
             cacheGroups: {
@@ -30,6 +30,22 @@ module.exports = merge(baseConfig,{
         }
     },
     plugins:[
+/*        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+            'process.env.VUE_ENV': '"client"'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks: function (module) {
+                return (
+                    /node_modules/.test(module.context) &&
+                    !/\.css$/.test(module.request)
+                )
+            }
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest'
+        }),*/
         new HtmlWebpackPlugin({
             filename:'index.html',
             template:'./src/index.html',
@@ -39,6 +55,7 @@ module.exports = merge(baseConfig,{
                 removeComments:true,
                 collapseWhitespace:false
             }
-        })
+        }),
+        new VueSSRClientPlugin()
     ]
 })
