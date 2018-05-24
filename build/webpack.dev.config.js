@@ -38,9 +38,7 @@ module.exports = function setupDevServer (app, cb) {
     const clientCompiler = webpack(clientConfig)
     devMiddleware = webpackDevMiddleware(clientCompiler,{
         publicPath: clientConfig.output.publicPath,
-        quiet: true , //向控制台显示任何内容
-        noInfo:true,
-        reload:true
+        noInfo: true
     })
     app.use(devMiddleware)
 

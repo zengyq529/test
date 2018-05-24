@@ -7,9 +7,9 @@ module.exports = merge(baseConfig,{
     entry: {
         app: './src/entry-client.js'
     },
-    optimization:{       //4.0 版 文件合并管理配置
+    /*optimization:{       //4.0 版 文件合并管理配置
         splitChunks:{
-            chunks: 'initial', // 只对入口文件处理
+            chunks: 'all', // 只对入口文件处理
             cacheGroups: {
                 vendor: { // split `node_modules`目录下被打包的代码到 `page/vendor.js && .css` 没找到可打包文件的话，则没有。css需要依赖 `ExtractTextPlugin`
                     test: /node_modules\//,
@@ -28,9 +28,9 @@ module.exports = merge(baseConfig,{
         runtimeChunk: {
             name: 'page/manifest'
         }
-    },
+    },*/
     plugins:[
-/*        new webpack.DefinePlugin({
+        new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
             'process.env.VUE_ENV': '"client"'
         }),
@@ -45,7 +45,7 @@ module.exports = merge(baseConfig,{
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'manifest'
-        }),*/
+        }),
         new HtmlWebpackPlugin({
             filename:'index.html',
             template:'./src/index.html',

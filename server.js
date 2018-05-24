@@ -33,7 +33,7 @@ if(isProd){
 }
 
 const serve = (path, cache) => express.static(resolve(path), {
-    maxAge: isProd ? 1000 * 60 * 60 * 24 * 30 : 0
+    maxAge: cache && isProd ? '7d' : 0
 })
 
 function render (req, res) {
@@ -60,11 +60,10 @@ function render (req, res) {
         }
     })
 }
-server.use('/dist', serve('./dist', true))
-server.use('/public', serve('./public', true))
+server.use('/', serve('./dist',true))
+server.use('/', serve('./public',true))
 
 server.get('*', isProd ? render : (req, res) => {
-    console.log(req.url)
     readyPromise.then(() => render(req, res))
 })
 
