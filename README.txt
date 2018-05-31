@@ -21,6 +21,9 @@ $ cnpm install express --save-dev  //用下面的 dev也会写入
 1, vue ssr 搭建基本开发环境（vue +webpack）
 2，加 vue-router , vue-style-loader , gulp px->rem 。       http://localhost:3000/#/index
 
+*******阶段4 单元测试 ******************************************************
+karam + mocha
+
 
 先不用这个  cnpm install --global vue-cli。
 

@@ -10,11 +10,9 @@ function fetchItem(name) {
 
 export default {
     namespaced: true,
-    // 重要信息：state 必须是一个函数，
-    // 因此可以创建多个实例化该模块
-    state: () => ({
+    state: () => {
         modulename:''
-    }),
+    },
     actions: {
         fetchItem ({ commit }, {name}) {
             return fetchItem(name).then(data => {

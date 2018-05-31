@@ -3,15 +3,20 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-//惰性加载
 const Index = ()=>import('./pages/Index.vue')
 const Flex = ()=>import('./pages/Flex.vue')
+//route test page
 const Parent = ()=>import('./pages/Parent.vue')
 const Children1 = ()=>import('./pages/c/Children1.vue')
 const Children2 = ()=>import('./pages/c/Children2.vue')
+
+//unit test page
+const Testpage = ()=>import('./pages/Test.vue')
+const Test1 = ()=>import('./pages/forunit/page1')
+const Test2 = ()=>import('./pages/forunit/page2')
 export  function createRouter() {
     return new VueRouter({
-        mode: 'history', //类型: string //默认值: "hash" (浏览器环境) | "abstract" (Node.js 环境) //可选值: "hash" | "history" | "abstract"
+        mode: 'history',
         base: '/',
         routes:[
             { path: '/index', component: Index,name: 'index' },
@@ -24,7 +29,15 @@ export  function createRouter() {
                     {path: 'children1', component: Children1},
                     {path: 'children2', component: Children2}
                 ]
-            }
+            },
+            { path: '/fortest',
+                component: Testpage,
+                name: 'test',
+                children:[
+                    {path: 'test1', component: Test1},
+                    {path: 'test2', component: Test2}
+                ]
+            },
         ]
     })
 }

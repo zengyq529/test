@@ -5,7 +5,7 @@ import { createApp } from './app'
 
 const { app, router, store } = createApp()
 
-if (window.__INITIAL_STATE__) {  //Í¬²½·þÎñ¶ËäÖÈ¾ÄÚÈÝ
+if (window.__INITIAL_STATE__) {  //Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¾ï¿½ï¿½ï¿½ï¿½
     store.replaceState(window.__INITIAL_STATE__)
 }
 
@@ -17,8 +17,6 @@ router.onReady(() => {
         const matched = router.getMatchedComponents(to)
         const prevMatched = router.getMatchedComponents(from)
 
-        // ÎÒÃÇÖ»¹ØÐÄ·ÇÔ¤äÖÈ¾µÄ×é¼þ
-        // ËùÒÔÎÒÃÇ¶Ô±ÈËüÃÇ£¬ÕÒ³öÁ½¸öÆ¥ÅäÁÐ±íµÄ²îÒì×é¼þ
         let diffed = false
         const activated = matched.filter((c, i) => {
             return diffed || (diffed = (prevMatched[i] !== c))

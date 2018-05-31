@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import pModule from '~store/flex' //惰性加载相关代码
+    import pModule from '~store/flex'
     export default {
         name: "parent",
         asyncData({ store, route }){
@@ -29,11 +29,11 @@
         },*/
         computed:{
             modulename () {
-                return this.$store.state.parent.modulename //惰性加载相关代码
+                return this.$store.state.parent.modulename
             }
         },
-        destroyed () {  // 避免在客户端重复注册模块。
-            this.$store.unregisterModule('parent') //惰性加载相关代码
+        destroyed () {
+            this.$store.unregisterModule('parent')
         },
     }
 </script>

@@ -15,7 +15,7 @@ function createRenderer (bundle, options) {
         runInNewContext: false
     }))
 }
-
+let renderer
 let readyPromise
 if(isProd){
     const bundle = require('./dist/vue-ssr-server-bundle.json')
@@ -60,6 +60,7 @@ function render (req, res) {
         }
     })
 }
+
 server.use('/', serve('./dist',true))
 server.use('/', serve('./public',true))
 
