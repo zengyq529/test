@@ -8,6 +8,7 @@
 
 <script>
     import c1Module from '~store/flex'
+
     export default {
         name: "children2",
         asyncData({ store, route }){
@@ -26,6 +27,7 @@
         mounted(){
             console.log('mounted children1')
         },*/
+
         computed:{
             modulename () {
                 return this.$store.state.c1.modulename

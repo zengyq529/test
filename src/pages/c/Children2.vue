@@ -8,6 +8,7 @@
 
 <script>
     import c2Module from '~store/flex'
+
     export default {
         name: "children2",
         asyncData({ store, route }){
@@ -31,6 +32,7 @@
                 return this.$store.state.c2.modulename
             }
         },
+
         destroyed () {
             this.$store.unregisterModule('c2')
         },

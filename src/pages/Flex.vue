@@ -1,6 +1,10 @@
 <template>
     <div>
-        {{modulename}}
+        <div id="mod" data-attr="hah">
+            {{modulename}}
+        </div>
+        <div>aaaaa</div>
+        <span id="nonetest" style="display: none">haha</span>
     </div>
 </template>
 
@@ -18,6 +22,9 @@
                 title:'flex div hello'
             }
         },
+        mounted(){
+            console.log(this)
+        },
         computed:{
             modulename () {
                 return this.$store.state.flex.modulename
@@ -26,5 +33,8 @@
         destroyed () {
             this.$store.unregisterModule('flex')
         },
+        test(){
+
+        }
     }
 </script>
